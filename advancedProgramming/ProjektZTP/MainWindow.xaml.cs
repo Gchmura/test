@@ -24,18 +24,13 @@ namespace ProjektZTP
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+	    private readonly ICalculateService _calculateService;
 
-        private readonly ICalculateService _calculateService;
 
-        
-
-        public MainWindow()
+	    public MainWindow(ICalculateService calculateService)
         {
-            //IN ARGS ERROR !!!
-            //ICalculateService calculateService, IIndicatorsService inducatorService
+	        _calculateService = calculateService;
             InitializeComponent();
-          // _calculateService = calculateService;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -87,21 +82,26 @@ namespace ProjektZTP
 
             DirectoryInfo di = new DirectoryInfo(path + "\\files");
             Dictionary<string, string> l = new Dictionary<string, string>();
-            //var list = _calculateService.Calculate(di);
-            
-            _calculateService.CalculateNormal(di);
+			//var list = _calculateService.Calculate(di);
 
-            Console.WriteLine("DONE");
-            Console.Read();
+	        var result = _calculateService.CalculateNormal(di);
 
-            TextBox t = new TextBox();
-            t.Text = l.ToString();
-        }
+			MessageBox.Show("pomyślnie");
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+		}
+
+		private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            //optimized
-            //z wątkami
+	        Assembly ass = Assembly.GetExecutingAssembly();
+
+			string path = System.IO.Path.GetDirectoryName(ass.Location);
+
+			DirectoryInfo di = new DirectoryInfo(path + "\\files");
+	        Dictionary<string, string> l = new Dictionary<string, string>();
+
+	        var result = _calculateService.Calculate(di).Result;
+
+	        MessageBox.Show("pomyślnie");
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)

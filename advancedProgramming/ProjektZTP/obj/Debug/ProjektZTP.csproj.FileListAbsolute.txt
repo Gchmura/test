@@ -66,3 +66,36 @@ C:\Users\Liberator\Desktop\INFMAG\advancedProgramming\ProjektZTP\obj\Debug\Proje
 C:\Users\Liberator\Desktop\INFMAG\advancedProgramming\ProjektZTP\obj\Debug\ProjektZTP.pdb
 C:\Users\Liberator\Desktop\INFMAG\advancedProgramming\ProjektZTP\obj\Debug\ProjektZTP.csprojResolveAssemblyReference.cache
 C:\Users\Liberator\Desktop\INFMAG\advancedProgramming\ProjektZTP\obj\Debug\ProjektZTP_MarkupCompile.lref
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\bin\Debug\ProjektZTP.exe.config
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\obj\Debug\ProjektZTP.exe
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\obj\Debug\ProjektZTP.pdb
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\obj\Debug\ProjektZTP.csprojResolveAssemblyReference.cache
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\obj\Debug\MainWindow.g.cs
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\obj\Debug\App.g.cs
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\obj\Debug\ProjektZTP_MarkupCompile.cache
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\obj\Debug\ProjektZTP_MarkupCompile.lref
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\bin\Debug\ProjektZTP.exe
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\bin\Debug\ProjektZTP.pdb
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\bin\Debug\CommonServiceLocator.dll
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\bin\Debug\Ionic.Zip.dll
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\bin\Debug\System.ValueTuple.dll
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\bin\Debug\Unity.Abstractions.dll
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\bin\Debug\Unity.Configuration.dll
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\bin\Debug\Unity.Container.dll
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\bin\Debug\Unity.Interception.Configuration.dll
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\bin\Debug\Unity.Interception.dll
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\bin\Debug\Unity.RegistrationByConvention.dll
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\bin\Debug\Unity.ServiceLocation.dll
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\bin\Debug\CommonServiceLocator.pdb
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\bin\Debug\System.ValueTuple.xml
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\bin\Debug\Unity.Abstractions.pdb
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\bin\Debug\Unity.Configuration.pdb
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\bin\Debug\Unity.Container.pdb
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\bin\Debug\Unity.Interception.pdb
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\bin\Debug\Unity.Interception.Configuration.pdb
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\bin\Debug\Unity.RegistrationByConvention.pdb
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\bin\Debug\Unity.ServiceLocation.pdb
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\obj\Debug\MainWindow.baml
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\obj\Debug\ProjektZTP.g.resources
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\obj\Debug\ProjektZTP.Properties.Resources.resources
+E:\ztp gregory\test\advancedProgramming\ProjektZTP\obj\Debug\ProjektZTP.csproj.GenerateResource.Cache

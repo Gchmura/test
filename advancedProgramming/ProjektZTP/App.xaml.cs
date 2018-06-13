@@ -10,19 +10,23 @@ using Unity;
 
 namespace ProjektZTP
 {
-    /// <summary>
-    /// Logika interakcji dla klasy App.xaml
-    /// </summary>
-    public partial class App : Application
-    {
-        protected override void OnStartup(StartupEventArgs e)
-        {
-            base.OnStartup(e);
+	/// <summary>
+	///     Logika interakcji dla klasy App.xaml
+	/// </summary>
+	public partial class App : Application
+	{
+		protected override void OnStartup(StartupEventArgs e)
+		{
+			base.OnStartup(e);
 
-            IUnityContainer container = new UnityContainer();
-            container.RegisterType<ICalculateService, CalculateService>();
-            container.RegisterType<IIndicatorsService, IndicatorsService>();
-        }
+			IUnityContainer container = new UnityContainer();
+			container.RegisterType<ICalculateService, CalculateService>();
+			container.RegisterType<IIndicatorsService, IndicatorsService>();
+			//container.Resolve()
+			
+			var mainWindow = container.Resolve<MainWindow>();
+			mainWindow.Show();
 
-    }
+		}
+	}
 }

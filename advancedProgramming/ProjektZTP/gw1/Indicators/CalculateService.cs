@@ -7,89 +7,115 @@ using ProjektZTP.gw1.SignalsModel;
 
 namespace ProjektZTP.gw1.Indicators
 {
-    public class CalculateService : ICalculateService
-    {
-        private readonly IIndicatorsService _indicatorsService;
+	public class CalculateService : ICalculateService
+	{
+		private readonly IIndicatorsService _indicatorsService;
 
-        public CalculateService(IIndicatorsService indicatorsService)
-        {
-            _indicatorsService = indicatorsService;
-        }
+		public CalculateService(IIndicatorsService indicatorsService)
+		{
+			_indicatorsService = indicatorsService;
+		}
 
-        public async Task<Dictionary<string, string>> Calculate(DirectoryInfo di)
-        {
-
-
-            FileInfo[] fi = di.GetFiles();
-            var length = fi.Length;
-            
-            var firstPart = fi.Take(length / 4).ToArray();
-            var secondPart =
-                fi.Skip(length / 4).Take(length / 4).ToArray();
-            var thirdPart =
-                fi.Skip(length / 2).Take(length / 4).ToArray();
-            var fourthPart =
-                fi.Skip((length / 2) + (length / 4)).ToArray();
+		public async Task<List<SignalDictionary>> Calculate(DirectoryInfo di)
+		{
 
 
-            var part1 = CalculatePart(firstPart);
-            var part2 = CalculatePart(firstPart);
-            var part3 = CalculatePart(firstPart);
-            var part4 = CalculatePart(firstPart);
+			FileInfo[] fi = di.GetFiles();
+			var length = fi.Length;
+
+			var firstPart = fi.Take(length / 4).ToArray();
+			var secondPart =
+				fi.Skip(length / 4).Take(length / 4).ToArray();
+			var thirdPart =
+				fi.Skip(length / 2).Take(length / 4).ToArray();
+			var fourthPart =
+				fi.Skip((length / 2) + (length / 4)).ToArray();
 
 
-            //await Task.WhenAll(part1, part2, part3, part4);
+			var part1 = CalculatePart(firstPart);
+			var part2 = CalculatePart(firstPart);
+			var part3 = CalculatePart(firstPart);
+			var part4 = CalculatePart(firstPart);
 
-            return new Dictionary<string, string>();
-           
-        }
 
-        private  List<SignalDictionary> CalculatePart(FileInfo[] part)
-        {
-            List<SignalDictionary> signalList = new List<SignalDictionary>();
+			await Task.WhenAll(part1, part2, part3, part4);
+			var result = new List<SignalDictionary>();
+			result.AddRange(part1.Result);
+			result.AddRange(part2.Result);
+			result.AddRange(part3.Result);
+			result.AddRange(part4.Result);
 
-            Parallel.For(0, part.Length, i =>
-            {
-                Dictionary<string, string> w = _indicatorsService.Wskazniki(15, part[i].FullName);
-                foreach (var item in w)
-                {
-                    
-                    //Console.WriteLine($"Data {item.Key} = {item.Value}");
-                    SignalDictionary signal = new SignalDictionary()
-                    {
-                        Key = item.Key,
-                        Value = item.Value
-                    };
+			return result;
 
-                    signalList.Add(signal);
-                }
-            });
+		}
 
-            return signalList;
-        }
+		private Task<List<SignalDictionary>> CalculatePart(FileInfo[] part)
+		{
+			return Task.Run(() =>
+				{
+					List<SignalDictionary> signalList = new List<SignalDictionary>();
+					object lockObj = new object();
 
-        
-        public void CalculateNormal(DirectoryInfo di)
-        {
-            Dictionary<string,string> o = new Dictionary<string, string>();
+					Parallel.For(0, part.Length, i =>
+					{
+						Dictionary<string, string> w = _indicatorsService.Wskazniki(15, part[i].FullName);
+						foreach (var item in w)
+						{
 
-            FileInfo[] fi = di.GetFiles();
-            Parallel.For(0, fi.Length, i =>
-            {
+							//Console.WriteLine($"Data {item.Key} = {item.Value}");
+							SignalDictionary signal = new SignalDictionary()
+							{
+								Key = item.Key,
+								Value = item.Value
+							};
 
-                Dictionary<string, string> w = _indicatorsService.Wskazniki(15, fi[i].FullName);
+							lock (lockObj)
+							{
+								signalList.Add(signal); 
+							}
+						}
+					});
 
-              
-            
-                foreach (var item in w)
-                {
-                    //do listy wypisywanie w textbloku
-                    o.Add($"Data {item.Key} = {item.Value}", $"Data {item.Key} = {item.Value}");
-                    //Console.WriteLine($"Data {item.Key} = {item.Value}");
-                }
-            });
-            
-        }
+					return signalList;
+				});
 
-    }
+
+		}
+
+
+		public List<SignalDictionary> CalculateNormal(DirectoryInfo di)
+		{
+			List<SignalDictionary> signalList = new List<SignalDictionary>();
+
+			FileInfo[] fi = di.GetFiles();
+			object lockObj = new object();
+			Parallel.For(0, fi.Length, i =>
+			{
+
+				Dictionary<string, string> w = _indicatorsService.Wskazniki(15, fi[i].FullName);
+
+
+
+				foreach (var item in w)
+				{
+					SignalDictionary signal = new SignalDictionary()
+					{
+						Key = item.Key,
+						Value = item.Value
+					};
+					lock (lockObj)
+					{
+						
+
+						signalList.Add(signal);
+					}
+
+					
+				}
+			});
+			return signalList;
+
+		}
+
+	}
 }
