@@ -5,7 +5,10 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using ProjektZTP.gw1.Indicators;
+using ProjektZTP.Projekt.Factory;
+using ProjektZTP.Projekt.Indicators;
+using ProjektZTP.Projekt.Services;
+using ProjektZTP.Projekt.Singleton;
 using Unity;
 
 namespace ProjektZTP
@@ -22,9 +25,13 @@ namespace ProjektZTP
 			IUnityContainer container = new UnityContainer();
 			container.RegisterType<ICalculateService, CalculateService>();
 			container.RegisterType<IIndicatorsService, IndicatorsService>();
-			//container.Resolve()
-			
-			var mainWindow = container.Resolve<MainWindow>();
+            container.RegisterSingleton<IDownloadService, DownloadService>();
+            container.RegisterType<ISingleton, Singleton>();
+
+
+            //container.Resolve()
+
+            var mainWindow = container.Resolve<MainWindow>();
 			mainWindow.Show();
 
 		}

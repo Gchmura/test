@@ -84,16 +84,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AbstractFactory\Factory.cs" />
-    <Compile Include="gw1\DownloadF\Download.cs" />
-    <Compile Include="gw1\Indicators\CalculateService.cs" />
-    <Compile Include="gw1\Indicators\ICalculateService.cs" />
-    <Compile Include="gw1\Indicators\IIndicatorsService.cs" />
-    <Compile Include="gw1\Indicators\IndicatorsService.cs" />
-    <Compile Include="gw1\SignalsModel\SignalDictionary.cs" />
-    <Compile Include="gw1\TA\FileOperations.cs" />
-    <Compile Include="gw1\Error\IErrorLogger.cs" />
-    <Compile Include="gw1\DownloadF\ReadService.cs" />
+    <Compile Include="Projekt\DownloadF\Download.cs" />
+    <Compile Include="Projekt\Services\CalculateService.cs" />
+    <Compile Include="Projekt\Services\DownloadService.cs" />
+    <Compile Include="Projekt\Services\ICalculateService.cs" />
+    <Compile Include="Projekt\Services\IDownloadService.cs" />
+    <Compile Include="Projekt\Services\IIndicatorsService.cs" />
+    <Compile Include="Projekt\Services\IndicatorsService.cs" />
+    <Compile Include="Projekt\SignalsModel\SignalDictionary.cs" />
+    <Compile Include="Projekt\Singleton\ISingleton.cs" />
+    <Compile Include="Projekt\Singleton\Singleton.cs" />
+    <Compile Include="Projekt\TA\FileOperations.cs" />
+    <Compile Include="Projekt\Error\IErrorLogger.cs" />
+    <Compile Include="Projekt\DownloadF\ReadService.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -102,24 +105,24 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="gw1\DownloadF\DownloadFromBankier.cs" />
-    <Compile Include="gw1\DownloadF\DownloadFromBossa.cs" />
-    <Compile Include="gw1\DownloadF\DownloadService.cs" />
-    <Compile Include="gw1\Error\ErrorMessage.cs" />
-    <Compile Include="gw1\Error\ErrorMessageToFile.cs" />
-    <Compile Include="gw1\Error\ErrorMessageToUser.cs" />
-    <Compile Include="gw1\SignalsModel\ISignals.cs" />
-    <Compile Include="gw1\SignalsModel\MacdSignals.cs" />
-    <Compile Include="gw1\SignalsModel\MavSignals.cs" />
-    <Compile Include="gw1\SignalsModel\RsiSignals.cs" />
-    <Compile Include="gw1\TA\TechnicalAnalize.cs" />
+    <Compile Include="Projekt\DownloadF\DownloadFromBankier.cs" />
+    <Compile Include="Projekt\DownloadF\DownloadFromBossa.cs" />
+    <Compile Include="Projekt\DownloadF\DownloadService.cs" />
+    <Compile Include="Projekt\Error\ErrorMessage.cs" />
+    <Compile Include="Projekt\Error\ErrorMessageToFile.cs" />
+    <Compile Include="Projekt\Error\ErrorMessageToUser.cs" />
+    <Compile Include="Projekt\SignalsModel\ISignals.cs" />
+    <Compile Include="Projekt\SignalsModel\MacdSignals.cs" />
+    <Compile Include="Projekt\SignalsModel\MavSignals.cs" />
+    <Compile Include="Projekt\SignalsModel\RsiSignals.cs" />
+    <Compile Include="Projekt\TA\TechnicalAnalize.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="gw1\DownloadF\PointerForex.cs" />
+    <Compile Include="Projekt\DownloadF\PointerForex.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
